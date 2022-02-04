@@ -1,0 +1,16 @@
+clouds: {all: 75}
+cod: 200
+coord: {lon: -0.1257, lat: 51.5085}
+dt: 1643986922
+id: 2643743
+main: {temp: 280.93,
+feels_like: 276.87,
+temp_min: 279.51, 
+temp_max: 282.25, 
+pressure: 1012, …}
+name: "London"
+sys: {type: 2, id: 2019646, country: 'GB', sunrise: 1643960063, sunset: 1643993664}
+timezone: 0
+visibility: 10000
+weather: [{…}]
+wind: {speed: 8.23, deg: 270}
