@@ -13,7 +13,7 @@ let humidity = document.querySelector('.humidity span') // +
 let wind = document.querySelector('.wind span') // +
 
 
-let cityInput = "London"
+let cityInput = "Manchester"
 
 cities.forEach(city => {
     city.addEventListener('click', (e) => {
@@ -21,19 +21,6 @@ cities.forEach(city => {
 
      fetchWeatherData()
     })
-})
-
-form.addEventListener('submit', (e) => {
-    if(searchInput.value == 0) {
-        alert("Please type in a city name")
-    } else {
-        cityInput = searchInput.value
-
-    fetchWeatherData()
-
-        searchInput.value = ""
-
-    }
 })
 
 function fetchWeatherData() {
@@ -47,6 +34,7 @@ function fetchWeatherData() {
         const humidityy = data.main.humidity
         const cloudyy = data.clouds.all
         const windd = data.wind.speed
+        const hourr = data.timezone
 
         name.textContent = namee
         temp.textContent = tempp + "°"
@@ -54,9 +42,77 @@ function fetchWeatherData() {
         desc.textContent = descriptionn
         wind.textContent = Math.floor(windd) + " km/h"
         cloudy.textContent = Math.floor(cloudyy) + "%"
+        
        // icon.src = "./icons/" + iconn
+     //  let curDate = new Date()
+     //  curDate.toLocaleString('en-GB')
 
-       let curDate = new Date()
+      //let curHour = hourr / 3600
+      /*  let curMin = curDate.getMinutes()
+
+        if(curHour < 10) {
+            curHour = "0" + curHour
+        }
+
+        let cityHour = data.timezone / 3600 - curHour
+      //  let cityMin = (cityHour - Math.floor(cityHour)) * 60
+
+        let cityMin = curMin - Math.abs(data.timezone / 3600) */
+
+       // hour.textContent = Math.floor(cityHour) + ":" + Math.floor(cityMin)
+
+        
+        //calcTime(namee, hourr)
+
+
+
+    let d = new Date()
+    d.toLocaleString('en-GB')
+    let localTime = d.getTime()
+    let localOffset = d.getTimezoneOffset() * 60000
+    let utc = localTime + localOffset
+    let atlanta = utc + (1000 * hourr)
+    let nd = new Date(atlanta)
+    let ndd = nd.getHours()
+    let nddMin = nd.getMinutes()
+
+    if(ndd < 10) {
+        ndd = '0' + ndd
+    }
+
+    if(nddMin < 10) {
+        nddMin = '0' + nddMin
+    }
+    
+    hour.textContent = ndd + ":" + nddMin
+
+// Mon Jun 15 2020 17:07:59 GMT-0700
+    })
+}
+
+    
+    fetchWeatherData()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+let curDate = new Date()
        curDate.toLocaleString('en-GB')
 
        let curHour = curDate.getHours()
@@ -72,18 +128,18 @@ function fetchWeatherData() {
 
         hour.textContent = curHour + ":" + curMin
 
-        if(desc.includes("rain")) {
-            if(curHour > 4) {
-                document.body.style.backgroundImage = "url(/images/day/rainy.jpg)"
-            }
-        }
-    })
-}
+*/
 
-fetchWeatherData()
+
 
 /*
+function calcTime(city, offset) {
+    var d = new Date();
+    var utc = d.getTime() + (offset * 60000);
+    var nd = new Date(utc + (3600000*offset));
 
-
-
-*/
+    let ndd = nd.getHours()
+    let ndd2 = nd.getMinutes()
+    
+    return ndd + ":" + ndd2
+} */
