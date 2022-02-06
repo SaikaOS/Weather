@@ -13,7 +13,6 @@ body {
     background-size: cover;
     color: white;
     position: relative;
-    overflow: hidden;
 }
 
 input, button {
@@ -35,19 +34,32 @@ ul li {
     list-style: none;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 100vh;
+    width: 40vw;
+}
+
 .thew {
-    margin: 5% 11%;
+    margin-right: 18rem;
+    margin-bottom: 15rem;
 }
 
 .block {
-    position: absolute;
-    left: 10%;
-    bottom: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 20vh;
-    width: 27vw;
+    height: 5vh;
+    width: 32vw;
 }
 
 .any {
@@ -60,6 +72,7 @@ ul li {
 
 .vars {
     text-transform: capitalize;
+    padding-left: 10px; 
 }
 
 .any img {
@@ -84,9 +97,6 @@ ul li {
 }
 
 .info {
-    position: absolute;
-    right: 0;
-    top: -11%;
     height: 100vh;
     width: 40vw;
     padding: 50px;
@@ -156,4 +166,153 @@ hr {
 .details span {
     position: absolute;
     right: 0;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 1024px) {
+    .thew {
+        margin-left: 40%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .thew {
+        margin-left: 50%;
+        font-size: 0.9rem;
+    }
+    .block {
+        width: 40vw;
+        margin-left: 30%;
+    }
+    .temp {
+        font-size: 3.5rem;
+    }
+    .name {
+        font-size: 1.7rem;
+    }
+    .vars {
+        font-size: 0.8rem;
+    }
+
+
+    .search_input {
+        width: 65%;
+        font-size: 0.6rem;
+    }
+
+    .search_btn {
+        padding: 10px;
+        right: 0;
+        top: 8.2%;
+        width: 20%;
+    }
+
+    .search_btn svg {
+        height: 1.2em;
+        width: 1.2em;
+    }
+
+    .cities li {
+        font-size: 0.8rem;
+    }
+
+    .details_title {
+        font-size: 0.85rem;
+    }
+
+    .details {
+        font-size: 0.8rem;
+        margin-top: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        flex-direction: column;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .thew {
+        font-size: 10px;
+        text-align: center;
+        z-index: 11;
+        margin: 0 auto;
+        position: absolute;
+        top: 10px;
+    }
+
+    .block {
+        width: 40vw;
+        margin: 0 auto;
+        position: absolute;
+        bottom: -7%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .temp {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .name {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .time {
+        margin-bottom: 10px;
+    }
+
+    .vars {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        margin-right: 5px;
+    }
+
+    .info {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 10vh;
+    }
+
+    .search_btn {
+        margin-top: 29px;
+        margin-right: 100px;
+        height: 40px;
+        width: 10%;
+    }
+
+    .cities li {
+        font-size: 0.7rem;
+    }
+
+    hr {
+        margin-top: 0px;
+    }
+
+    .details_title {
+        font-size: 0.75rem;
+        padding-left: 10px;
+    }
+
+    .details li {
+        font-size: 0.65rem;
+        padding-left: 10px;
+    }
+
+    body {
+        min-height: 150vh;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .search_btn {
+        width: 15%;
+        margin-right: 40px;
+    }
 }
