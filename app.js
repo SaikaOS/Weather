@@ -25,6 +25,18 @@ cities.forEach(city => {
     })
 })
 
+form.addEventListener('submit', e => {
+    if(searchInput.value.length == 0) {
+        alert("Please type in a city name")
+    } else {
+        cityInput = searchInput.value
+        fetchWeatherData()
+        searchInput.value = ''
+        document.body.style.opacity = '0'
+    }
+    e.preventDefault()
+})
+
 function fetchWeatherData() {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=08d1d136cf7b6a2075738941b8063f26`)
     .then(response => response.json())
@@ -62,15 +74,19 @@ function fetchWeatherData() {
 
         if (ndd < 5 || ndd > 19) {
             if (iconn == '02n' || iconn == '03n' || iconn == '04n') {
+                document.body.style.color = "white"
                 document.body.style.backgroundImage = "url(/images/night/cloudy.jpg)"
             }
             else if (iconn == '01n'){
+                document.body.style.color = "white"
                 document.body.style.backgroundImage = "url(/images/night/clear.jpg)"
             }
             else if (iconn == '09n' || iconn == '10n' || iconn == '11n') {
+                document.body.style.color = "white"
                 document.body.style.backgroundImage = "url(/images/night/rainy.jpg)"
             }
             else if (iconn == '13n' || iconn == '50n') {
+                document.body.style.color = "white"
                 document.body.style.backgroundImage = "url(/images/night/snowy.jpg)"
             }
         }
@@ -166,18 +182,5 @@ function fetchWeatherData() {
         document.body.style.opacity = '1'
     })
 }
-
-form.addEventListener('submit', e => {
-    if(searchInput.value.length == 0) {
-        alert("Please type in a city name")
-    } else {
-        cityInput = searchInput.value
-        fetchWeatherData()
-        searchInput.value = ''
-        document.body.style.opacity = '0'
-    }
-    e.preventDefault()
-})
-
 
 fetchWeatherData()

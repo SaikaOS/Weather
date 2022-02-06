@@ -22,6 +22,11 @@ input, button {
     outline: 0;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 ::placeholder {
     color: white;
 }
@@ -114,7 +119,7 @@ ul li {
 .cities {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     height: 30vh;
     margin-top: 30px;
 }
@@ -127,6 +132,12 @@ hr {
 
 .cities li {
     cursor: pointer;
+    padding: 10px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.cities li:hover {
+    opacity: 0.6;
 }
 
 .details {
